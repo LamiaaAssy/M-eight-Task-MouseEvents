@@ -1,0 +1,96 @@
+body
+{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+    overflow: hidden;
+    cursor: none;
+}
+h1
+{
+    color: white;
+}
+#cursor
+{
+     position: absolute;
+     width: 20px;
+     height: 20px;
+     border: 2px solid white;
+     transition: 0.2s;
+     transform: translate(-50%,-50%);
+     border-radius: 50%;
+     pointer-events: none;
+     
+}
+h1:hover ~ #cursor
+{
+    width: 80px;
+    height: 80px;
+    border: 2px solid white;
+    animation: animate 5s linear infinite;  
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: translate(-50%,-50%) rotate(0 deg);
+    }
+    100%
+    {
+        transform: translate(-50%,-50%) rotate(360 deg);
+    }
+}
+.wrapper
+{
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+.card
+{
+    width: 280px;
+    height: 360px;
+    padding: 2rem 1rem;
+    margin-top: 5;
+    background: #fff;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.5s ease-in-out;
+}
+.card:hover
+{
+    transform: translateY(-20px);
+}
+.card::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: 0.5s all;
+    opacity: 0;
+}
+.card:hover:before
+{
+    opacity: 1;
+}
+.card img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
